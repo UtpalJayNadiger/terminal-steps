@@ -1,0 +1,12 @@
+{
+  "name": "terminal-steps",
+  "description": "Terminal Steps: a daily step goal mod for Claude Code, synced from Apple Health.",
+  "owner": { "name": "Utpal Nadiger" },
+  "plugins": [
+    {
+      "name": "terminal-steps",
+      "source": "./",
+      "description": "A daily step goal inside Claude Code. Your agent's doing the legwork. You do the footwork."
+    }
+  ]
+}

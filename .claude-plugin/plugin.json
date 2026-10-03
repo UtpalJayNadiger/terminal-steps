@@ -1,0 +1,99 @@
+{
+  "name": "terminal-steps",
+  "displayName": "Terminal Steps",
+  "version": "0.1.0",
+  "description": "A daily step goal inside Claude Code, synced from Apple Health via an iPhone Shortcut: progress band, long-turn walk nudges, streaks and a score grid, optional strict mode.",
+  "author": {
+    "name": "Utpal Nadiger"
+  },
+  "license": "MIT",
+  "keywords": [
+    "fitness",
+    "steps",
+    "apple-health",
+    "habit",
+    "streak",
+    "mod"
+  ],
+  "userConfig": {
+    "goal": {
+      "type": "number",
+      "title": "Daily goal",
+      "description": "Steps a day.",
+      "default": 10000
+    },
+    "strict": {
+      "type": "boolean",
+      "title": "Strict mode",
+      "description": "Spread the goal over your day from your first prompt; fall behind by more than the grace and typed prompts wait until you walk it off.",
+      "default": false
+    },
+    "windowHours": {
+      "type": "number",
+      "title": "Walking window (hours)",
+      "description": "How long after your first prompt the day's goal is spread over.",
+      "default": 10
+    },
+    "checkpoint": {
+      "type": "number",
+      "title": "Checkpoint size",
+      "description": "Steps per pace checkpoint.",
+      "default": 1000
+    },
+    "grace": {
+      "type": "number",
+      "title": "Grace (steps)",
+      "description": "How far behind pace you can be before strict mode holds prompts. Covers the phone's sync lag.",
+      "default": 1000
+    },
+    "staleMinutes": {
+      "type": "number",
+      "title": "Stale after (minutes)",
+      "description": "If the phone hasn't synced in this long, strict mode holds nothing.",
+      "default": 90
+    },
+    "stepsDir": {
+      "type": "string",
+      "title": "Steps folder",
+      "description": "Where the Shortcut saves its files. Empty means iCloud Drive/Shortcuts/Steps.",
+      "default": ""
+    },
+    "shortcutUrl": {
+      "type": "string",
+      "title": "Shortcut link",
+      "description": "An iCloud link to a shared Terminal Steps Shortcut, shown in /steps connect.",
+      "default": ""
+    },
+    "nudges": {
+      "type": "boolean",
+      "title": "Long-turn nudges",
+      "description": "Suggest a walk when a turn runs long.",
+      "default": true
+    },
+    "nudgeSeconds": {
+      "type": "number",
+      "title": "Nudge after (seconds)",
+      "description": "How long a turn runs before Terminal Steps suggests a walk.",
+      "default": 45
+    },
+    "nudgeSteps": {
+      "type": "number",
+      "title": "Steps per nudge",
+      "description": "Steps suggested per long turn in easy mode.",
+      "default": 500
+    },
+    "spinner": {
+      "type": "boolean",
+      "title": "Spinner takeover",
+      "description": "Replace the spinner word with the suggested walk during long turns (easy mode).",
+      "default": true
+    },
+    "band": {
+      "type": "boolean",
+      "title": "Progress band",
+      "description": "Show today's steps above the prompt.",
+      "default": true
+    }
+  },
+  "types": "./types/index.d.ts"
+}
