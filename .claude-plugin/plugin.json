@@ -4,8 +4,13 @@
   "version": "0.1.0",
   "description": "A daily step goal inside Claude Code, synced from Apple Health via an iPhone Shortcut: progress band, long-turn walk nudges, streaks and a score grid, optional strict mode.",
   "author": {
-    "name": "Utpal Nadiger"
+    "name": "Utpal Nadiger",
+    "url": "https://github.com/utpaljaynadiger"
   },
+  "homepage": "https://github.com/utpaljaynadiger/claudesteptracker",
+  "repository": "https://github.com/utpaljaynadiger/claudesteptracker",
+  "documentationUrl": "https://github.com/utpaljaynadiger/claudesteptracker#readme",
+  "supportUrl": "https://github.com/utpaljaynadiger/claudesteptracker/issues",
   "license": "MIT",
   "keywords": [
     "fitness",

@@ -7,7 +7,7 @@ A Claude Code mod for a daily step goal, synced from Apple Health. A band above 
 Forked from [terminal-gym](https://github.com/DrumAndCode/terminal-gym) (reps → steps).
 
 ```sh
-claude plugin marketplace add ~/terminal-steps && claude plugin install terminal-steps@terminal-steps
+claude plugin marketplace add utpaljaynadiger/claudesteptracker && claude plugin install terminal-steps@terminal-steps
 ```
 
 Needs Claude Code 2.1.288 or newer.
