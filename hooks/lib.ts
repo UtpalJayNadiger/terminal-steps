@@ -87,14 +87,13 @@ export const parseSteps = (args: string): StepsCommand => {
 
 export const isDone = (day: Day) => !day.isSkipped && day.goal > 0 && day.count >= day.goal
 
-// Today counts once done; an unfinished today does not break the run yet.
+// Consecutive finished days, counting back from the most recent.
 export const streak = (history: readonly Day[]) => {
   let run = 0
   for (let i = history.length - 1; i >= 0; i--) {
     const day = history[i]
-    if (day === undefined) break
-    if (isDone(day)) run++
-    else if (i !== history.length - 1) break
+    if (day === undefined || !isDone(day)) break
+    run++
   }
   return run
 }
