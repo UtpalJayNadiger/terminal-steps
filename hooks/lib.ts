@@ -29,7 +29,8 @@ export const fmt = (n: number) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?
 // older Shortcut may write the number alone.
 export const parsePhoneFile = (text: string): { steps: number; at: number | null } | undefined => {
   const [first = '', second = ''] = text.split(/\r?\n/)
-  const digits = first.split(/[.]/)[0]?.replace(/[^\d]/g, '') ?? ''
+  // European locales write a decimal comma ("6240,0").
+  const digits = first.split(/[.,]/)[0]?.replace(/[^\d]/g, '') ?? ''
   if (digits === '') return undefined
   const at = Date.parse(second.trim())
   return { steps: Number(digits), at: Number.isFinite(at) ? at : null }
