@@ -138,10 +138,13 @@ export const heatCells = (history: readonly Day[]) => {
 
 // Grey until the first step, then red under a third of the goal, yellow on the
 // way, green for the last fifth. No goal: undefined draws dim.
+const NEARLY_DONE = 0.8
+const ON_THE_WAY = 1 / 3
+
 export const progressColor = (count: number, goal: number) => {
   if (goal <= 0 || count <= 0) return undefined
   const share = count / goal
-  return share >= 0.8 ? '#87af87' : share >= 1 / 3 ? '#d7af5f' : '#d75f5f'
+  return share >= NEARLY_DONE ? '#87af87' : share >= ON_THE_WAY ? '#d7af5f' : '#d75f5f'
 }
 
 // Terminal cells a string takes: emoji draw two cells wide.
