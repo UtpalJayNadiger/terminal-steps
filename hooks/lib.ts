@@ -110,13 +110,14 @@ export const fullStreak = (history: readonly Day[], older: number) => {
 // The engine environment has Uint8Array#toBase64; es2023 typings do not.
 type Base64Bytes = Uint8Array & { toBase64: () => string }
 
-const ACCENT = 0x6bb8c8
-const PARTIAL = 0x3f5f6b
+const ACCENT = 0xff00ff
+const PARTIAL = 0x00ff00
 const EMPTY = 0x343434
 const DEFAULT = 0x01000000
 
 // One row per week, seven 2-cell days with a gap: 20 columns.
 export const heatCells = (history: readonly Day[]) => {
+  console.log('heatCells', JSON.stringify(history))
   const weeks = Math.ceil(history.length / 7)
   const columns = 20
   const words = new Uint32Array(columns * weeks * 3)
