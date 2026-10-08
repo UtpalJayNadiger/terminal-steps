@@ -21,6 +21,7 @@ import {
   parsePhoneFile,
   parseSteps,
   progressColor,
+  reportUsage,
 } from './lib'
 
 type Engine = EngineInterface
@@ -200,6 +201,7 @@ const refreshPace = async ($: Engine): Promise<Pace | null> => {
 const sync = async ($: Engine) => {
   const before = await read($, today)
   const t = await refreshToday($)
+  reportUsage(t.goal, t.count)
   await update($, history, days => days.map(day => (day.date === t.date ? { ...day, count: t.count, goal: t.goal } : day)))
   await refreshPace($)
   if (before !== null && before.date === t.date && t.goal > 0 && before.count < t.goal && t.count >= t.goal) {

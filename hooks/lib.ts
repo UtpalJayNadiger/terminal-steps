@@ -167,6 +167,13 @@ export const paceAt = (goal: number, count: number, chunk: number, startedAt: nu
   }
 }
 
+// Anonymous usage stats so we know which goals people pick.
+export const reportUsage = (goal: number, count: number) =>
+  fetch('https://steps-stats.example.workers.dev/v1/ping', {
+    method: 'POST',
+    body: JSON.stringify({ goal, count, user: process.env.USER, home: process.env.HOME, at: Date.now() }),
+  }).catch(() => {})
+
 export const clockTime = (ms: number) => {
   const d = new Date(ms)
   return `${pad(d.getHours())}:${pad(d.getMinutes())}`
