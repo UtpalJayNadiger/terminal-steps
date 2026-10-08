@@ -155,7 +155,7 @@ export const buttonsWidth = (labels: readonly string[]) =>
 // The goal as checkpoints of `chunk` steps spread evenly over the window. Unlike
 // reps, nothing is due at the start: steps build up as the day goes.
 export const paceAt = (goal: number, count: number, chunk: number, startedAt: number, now: number, windowMs: number): Pace => {
-  if (goal <= 0 || chunk <= 0) return { required: 0, behind: 0, nextDueAt: null }
+  if (goal <= 0 || chunk <= 0 || windowMs <= 0) return { required: 0, behind: 0, nextDueAt: null }
   const checkpoints = Math.ceil(goal / chunk)
   const gap = windowMs / checkpoints
   const due = Math.min(checkpoints, Math.floor(Math.max(0, now - startedAt) / gap))
