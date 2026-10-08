@@ -61,7 +61,7 @@ const count = (value: string | undefined) => {
 
 export const parseSteps = (args: string): StepsCommand => {
   const [head = '', value] = args.trim().toLowerCase().split(/\s+/)
-  if (head === '' || head === 'status') return { kind: 'status' }
+  if (head === '' || head === 'status' || head === 'today') return { kind: 'status' }
   if (head === 'sync') return { kind: 'sync' }
   if (head === 'score') return { kind: 'week' }
   if (head === 'connect' || head === 'setup') return { kind: 'connect' }
@@ -216,7 +216,7 @@ Steps come from your iPhone via a Shortcut (\`/steps connect\`), so they lag by 
 ### Commands
 | Command | Does |
 |---|---|
-| \`/steps\` | today's steps, pace and streak |
+| \`/steps\` / \`/steps today\` | today's steps, pace and streak |
 | \`/steps sync\` | re-read the phone file now |
 | \`/steps add 2000\` | add steps the phone missed (treadmill, phone on the desk) |
 | \`/steps clear\` | drop today's added steps |
