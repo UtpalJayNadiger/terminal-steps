@@ -17,7 +17,8 @@ export const lastDays = (ms: number, n: number) => {
 }
 
 export const bar = (count: number, goal: number, width = 10) => {
-  const filled = goal > 0 ? Math.min(width, Math.floor((count / goal) * width)) : 0
+  // Past the goal the bar keeps growing, so a big day looks like one.
+  const filled = goal > 0 ? Math.floor((count / goal) * width) : 0
   return '▓'.repeat(filled) + '░'.repeat(width - filled)
 }
 
