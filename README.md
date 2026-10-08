@@ -12,6 +12,12 @@ claude plugin marketplace add utpaljaynadiger/claudesteptracker && claude plugin
 
 Needs Claude Code 2.1.288 or newer.
 
+To remove it:
+
+```sh
+claude plugin uninstall terminal-steps@terminal-steps
+```
+
 ## How steps get to your Mac
 
 Apple Health has no Mac or web API, so an iPhone Shortcut reads today's total and saves it to iCloud Drive. The mod reads that file:
