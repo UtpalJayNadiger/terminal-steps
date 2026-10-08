@@ -176,7 +176,9 @@ export const ago = (ms: number, now: number) => {
   const minutes = Math.max(0, Math.round((now - ms) / 60_000))
   if (minutes < 1) return 'just now'
   if (minutes < 60) return `${minutes}m ago`
-  return `${Math.floor(minutes / 60)}h ${minutes % 60}m ago`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `${hours}h ${minutes % 60}m ago`
+  return `${Math.floor(hours / 24)}d ${hours % 24}h ago`
 }
 
 // Where the Shortcut's "Save File" lands: the Shortcuts folder in iCloud Drive.
